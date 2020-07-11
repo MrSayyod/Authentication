@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MembersOnly</title>
+    <title>Posts</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,9 +9,25 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= link_to root_path do%>
+    <h1> Home </h1>
+  <% end %>
   <body>
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
     <%= yield %>
+    <% if user_signed_in? %>
+  <p>
+    <%= link_to current_user.username, edit_user_registration_path %> 
+  </p>
+  <p>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
+  </p>
+  <% else %>
+  <p>
+    <%= link_to "Log In", new_user_session_path %> 
+  </p>
+  <p>
+    <%= link_to "Sign up", new_user_registration_path %> 
+  </p>
+  <% end %>
   </body>
 </html>
