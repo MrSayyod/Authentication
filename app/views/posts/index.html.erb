@@ -1,5 +1,3 @@
-require "index_helper"
-
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
@@ -9,7 +7,9 @@ require "index_helper"
     <tr>
       <th>Title</th>
       <th>Body</th>
-        username
+      <% if user_signed_in? %>
+        <th>Username</th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,4 +34,4 @@ require "index_helper"
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path %> <br>
