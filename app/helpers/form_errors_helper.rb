@@ -1,7 +1,5 @@
 module FormErrorsHelper
-    def form_errors(post)
-      if post.errors.any?
-        render 'posts/form_errors'
-      end
-    end
+  def form_errors(post)
+    render 'posts/form_errors' if post.errors.any?
   end
+end

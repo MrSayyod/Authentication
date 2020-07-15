@@ -1,13 +1,9 @@
 module PostUsernameHelper
   def each_post_username(post)
-    if user_signed_in?
-      render 'each', post: post
-    end
+    render 'each', post: post if user_signed_in?
   end
-  
+
   def editing(post)
-    if current_user && current_user.id == post.user_id
-      render 'editing', post: post
-    end
+    render 'editing', post: post if current_user && current_user.id == post.user_id
   end
 end

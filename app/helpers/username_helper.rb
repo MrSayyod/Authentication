@@ -1,7 +1,5 @@
 module UsernameHelper
   def nameuser
-    if user_signed_in?
-      render 'posts/username_helper'
-    end
+    render 'posts/username_helper' if user_signed_in?
   end
 end
