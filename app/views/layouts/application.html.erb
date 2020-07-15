@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MembersOnly</title>
+    <title>Posts</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= link_to root_path do%>
+    <h1> Home </h1>
+  <% end %>
   <body>
     <%= yield %>
+    <%= sign_in(@user) %>
   </body>
 </html>
